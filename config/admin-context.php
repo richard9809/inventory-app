@@ -1,5 +1,7 @@
 <?php
 
+use App\AdminContext\Middleware\AdminContextMiddleware;
+use App\Http\Livewire\AdminContextLogin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Http\Middleware\MirrorConfigToSubpackages;
@@ -50,8 +52,8 @@ return [
     */
 
     'pages' => [
-        'namespace' => 'App\\FilamentTeams\\Pages',
-        'path' => app_path('FilamentTeams/Pages'),
+        'namespace' => 'App\\AdminContext\\Pages',
+        'path' => app_path('AdminContext/Pages'),
         'register' => [],
     ],
 
@@ -66,8 +68,8 @@ return [
     */
 
     'resources' => [
-        'namespace' => 'App\\FilamentTeams\\Resources',
-        'path' => app_path('FilamentTeams/Resources'),
+        'namespace' => 'App\\AdminContext\\Resources',
+        'path' => app_path('AdminContext/Resources'),
         'register' => [],
     ],
 
@@ -82,8 +84,8 @@ return [
     */
 
     'widgets' => [
-        'namespace' => 'App\\FilamentTeams\\Widgets',
-        'path' => app_path('FilamentTeams/Widgets'),
+        'namespace' => 'App\\AdminContext\\Widgets',
+        'path' => app_path('AdminContext/Widgets'),
         'register' => [
             Widgets\AccountWidget::class,
             Widgets\FilamentInfoWidget::class,
@@ -101,8 +103,8 @@ return [
     */
 
     'livewire' => [
-        'namespace' => 'App\\FilamentTeams',
-        'path' => app_path('FilamentTeams'),
+        'namespace' => 'App\\AdminContext',
+        'path' => app_path('AdminContext'),
     ],
 
     /*
@@ -118,7 +120,7 @@ return [
     'auth' => [
         'guard' => env('FILAMENT_AUTH_GUARD', 'web'),
         'pages' => [
-            'login' => \Filament\Http\Livewire\Auth\Login::class,
+            'login' => AdminContextLogin::class,
         ],
     ],
 
@@ -134,7 +136,8 @@ return [
 
     'middleware' => [
         'auth' => [
-            Authenticate::class,
+            // Authenticate::class,
+            AdminContextMiddleware::class,
         ],
         'base' => [
             EncryptCookies::class,

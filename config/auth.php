@@ -40,6 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'hospital' => [
+            'driver' => 'session',
+            'provider' => 'hospital_users',
+        ],
+
+        'dispensary' => [
+            'driver' => 'session',
+            'provider' => 'dispensary_users',
+        ],
     ],
 
     /*
@@ -63,6 +73,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        // Add this
+        'hospital_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\HospitalUser::class,
+        ],
+
+        // Add this
+        'dispensary_users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DispensaryUser::class,
         ],
 
         // 'users' => [

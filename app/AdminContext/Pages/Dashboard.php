@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FilamentTeams\Pages;
+namespace App\AdminContext\Pages;
 
 use Filament\Pages\Dashboard as PagesDashboard;
 use Iotronlab\FilamentMultiGuard\Concerns\ContextualPage;

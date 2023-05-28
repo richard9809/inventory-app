@@ -1,15 +1,15 @@
 <?php
 
-namespace App\FilamentTeams\Middleware;
+namespace App\AdminContext\Middleware;
 
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
-class FilamentTeamsMiddleware extends Middleware
+class AdminContextMiddleware extends Middleware
 {
     protected function authenticate($request, array $guards): void
     {
-        $guardName = config('filament-teams.auth.guard');
+        $guardName = config('admin-context.auth.guard');
         $guard = $this->auth->guard($guardName);
 
         if (!$guard->check()) {
@@ -33,6 +33,6 @@ class FilamentTeamsMiddleware extends Middleware
 
     protected function redirectTo($request): string
     {
-        return route('filament-teams.auth.login');
+        return route('admin-context.auth.login');
     }
 }
