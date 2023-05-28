@@ -2,6 +2,7 @@
 
 namespace App\AdminContext\Resources;
 
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use App\AdminContext\Resources\DispensaryUserResource\Pages;
 use App\AdminContext\Resources\DispensaryUserResource\RelationManagers;
 use App\Models\DispensaryUser;
@@ -72,6 +73,7 @@ class DispensaryUserResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                FilamentExportBulkAction::make('export'),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }

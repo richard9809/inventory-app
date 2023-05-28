@@ -2,6 +2,7 @@
 
 namespace App\AdminContext\Resources;
 
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use App\AdminContext\Resources\UserResource\Pages;
 use App\AdminContext\Resources\UserResource\RelationManagers;
 use App\Models\User;
@@ -71,6 +72,7 @@ class UserResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                FilamentExportBulkAction::make('export'),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }

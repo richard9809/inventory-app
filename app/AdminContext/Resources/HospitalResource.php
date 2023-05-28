@@ -2,6 +2,7 @@
 
 namespace App\AdminContext\Resources;
 
+use AlperenErsoy\FilamentExport\Actions\FilamentExportBulkAction;
 use App\AdminContext\Resources\HospitalResource\Pages;
 use App\AdminContext\Resources\HospitalResource\RelationManagers;
 use App\Models\Hospital;
@@ -60,6 +61,7 @@ class HospitalResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
+                FilamentExportBulkAction::make('export'),
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
